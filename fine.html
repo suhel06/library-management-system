@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Fine Payment</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <body class="page">
+
+<div class="card">
+  <h2>💰 Fine Payment</h2>
+
+  <p>Fine Amount: ₹50</p>
+
+<input type="checkbox" id="paid"> Paid<br><br>
+
+<button onclick="payFine()">Confirm</button>
+
+</div>
+
+
+
+<script>
+function payFine(){
+  let paid = document.getElementById("paid").checked;
+
+  if(!paid){
+    alert("Please pay fine first");
+    return;
+  }
+
+  alert("Book Returned Successfully");
+  window.location = "dashboard.html";
+}
+</script>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

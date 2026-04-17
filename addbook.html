@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+    
+<body class="page">
+
+<div class="card">
+  <h2>➕ Add Book</h2>
+
+  <input id="name" placeholder="Book Name">
+  <input id="author" placeholder="Author">
+
+<button onclick="addBook()">Add Book</button>
+
+</div>
+
+<script>
+function addBook(){
+  let name = document.getElementById("name").value;
+  let author = document.getElementById("author").value;
+
+  if(!name || !author){
+    alert("All fields required");
+    return;
+  }
+
+  let books = JSON.parse(localStorage.getItem("books")) || [];
+
+  books.push({name, author, available:true});
+
+  localStorage.setItem("books", JSON.stringify(books));
+
+  alert("Book Added");
+}
+</script>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

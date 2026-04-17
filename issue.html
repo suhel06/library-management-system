@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Issue Book</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="page" onload="loadBooks()">
+
+<div class="card">
+  <h2>📖 Issue Book</h2>
+
+  <input type="text" id="search" placeholder="🔍 Search Book..." onkeyup="filterBooks()">
+
+  <div id="bookList"></div>
+
+  <p id="noBooks" style="color:gray; display:none;">No books available</p>
+
+  <p id="error" style="color:red;"></p>
+
+  <input type="date" id="issue" onchange="setReturnDate()">
+  <input type="date" id="return">
+
+<button onclick="issueBook()">Issue Book</button>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+function setReturnDate(){
+  let issue = document.getElementById("issue").value;
+  if(!issue) return;
+
+  let d = new Date(issue);
+  d.setDate(d.getDate() + 15);
+
+  document.getElementById("return").value =
+    d.toISOString().split("T")[0];
+}
+</script>
+
+</body>
+</html>
